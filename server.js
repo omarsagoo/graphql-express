@@ -19,6 +19,8 @@ const schema = buildSchema(`
         pressure: Int!
         humidity: Int!
         description: String!
+        cod: Int!
+        message: String!
     }
 
     enum Units {
@@ -44,6 +46,8 @@ const root = {
           const temp_max = json.main.temp_max
           const pressure = json.main.pressure
           const humidity = json.main.humidity
+          const cod = json.cod
+          const message = json.message
           const description = json.weather[0].description
           return {temperature, feels_like, temp_min, temp_max, pressure, humidity, description}
       }
